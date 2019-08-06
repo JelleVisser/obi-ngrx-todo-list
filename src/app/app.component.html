@@ -1,0 +1,40 @@
+<section class="section">
+  <div class="container">
+    <div class="box">
+      <section class="panel">
+        <p class="panel-heading">
+          NGRX TODO LIST
+        </p>
+        <label
+          *ngFor="let task of tasks$ | async"
+          class="panel-block u-relative"
+          [ngStyle]="
+            task.isCompleted ? { 'text-decoration': 'line-through' } : {}
+          "
+        >
+          <input
+            (change)="onToggle(task)"
+            [checked]="task.isCompleted"
+            type="checkbox"
+          />
+          {{ task.title }}
+          <a (click)="onRemove(task)" class="delete app__delete"></a>
+        </label>
+        <div class="panel-block">
+          <p class="control has-icons-left">
+            <input
+              [(ngModel)]="newTaskTitle"
+              (keyup.enter)="onSubmit()"
+              class="input is-small"
+              type="text"
+              placeholder="Add task"
+            />
+            <span class="icon is-small is-left">
+              <i class="fas fa-plus" aria-hidden="true"></i>
+            </span>
+          </p>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

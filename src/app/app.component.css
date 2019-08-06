@@ -1,0 +1,8 @@
+.u-relative {
+  position: relative;
+}
+
+.app__delete {
+  position: absolute;
+  right: 12px;
+}
